@@ -1,0 +1,25 @@
+.empty {
+    margin-top: 150px;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.recycle {
+    margin-top: 200px;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h1{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 35px;
+    color: rgb(91, 64, 116);
+    cursor: none;
+}
