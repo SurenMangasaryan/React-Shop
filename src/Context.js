@@ -29,11 +29,35 @@ export default function Context({ children }) {
     const [checkEmail, setCheckEmail] = useState('');
 
     const validation = (value, length, func) => {
+        func(value.target.value);
         if (value.target.value.length >= length) {
-            func(value.target.value);
             value.target.style.background = 'green';
-        } else {
+        } else if (value.target.value.length === 0) {
             value.target.style.background = 'transparent';
+        } else {
+            value.target.style.background = 'red';
+        }
+    }
+
+    const checkValidLogin = (value, func) => {
+        func(value.target.value);
+        if (value.target.value === checkUserName) {
+            value.target.style.background = 'green';
+        } else if (value.target.value.length === 0) {
+            value.target.style.background = 'transparent';
+        } else {
+            value.target.style.background = 'red';
+        }
+    }
+
+    const checkValidEmail = (value, func) => {
+        func(value.target.value);
+        if (value.target.value === checkEmail && checkEmail.length > 0) {
+            value.target.style.background = 'green';
+        } else if (value.target.value.length === 0) {
+            value.target.style.background = 'transparent';
+        } else {
+            value.target.style.background = 'red';
         }
     }
 
@@ -47,6 +71,11 @@ export default function Context({ children }) {
                     email: email,
                     password: password
                 }));
+            setUserName("");
+            setName("");
+            setSureName("");
+            setEmail("");
+            setPassword("");
             setCheckUserName(userName);
             setCheckEmail(email);
         } else {
@@ -55,11 +84,15 @@ export default function Context({ children }) {
     }
 
     const localCheckValid = () => {
-        if (login === checkUserName && logEmail === checkEmail) {
-            localStorage.setItem(userName, JSON.stringify({
-                login: login,
-                email: logEmail
-            }));
+        if (checkUserName.length > 0 && checkEmail.length > 0) {
+            if (login === checkUserName && logEmail === checkEmail && logEmail !== undefined && logEmail !== undefined) {
+                localStorage.setItem(userName, JSON.stringify({
+                    login: login,
+                    email: logEmail
+                }));
+                setLogin("");
+                setLogEmail("");
+            }
         }
     }
 
@@ -76,7 +109,9 @@ export default function Context({ children }) {
         logEmail, setLogEmail,
         validation,
         localStorageValid,
-        localCheckValid
+        localCheckValid,
+        checkValidLogin,
+        checkValidEmail
     }
 
     return (

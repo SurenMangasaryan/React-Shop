@@ -4,7 +4,7 @@ import '../Login/Login.css'
 
 export default function Login() {
 
-    const { login, setLogin, logEmail, setLogEmail, localCheckValid } = useContext(MyContext);
+    const { login, setLogin, logEmail, setLogEmail, localCheckValid, checkValidLogin, checkValidEmail } = useContext(MyContext);
 
     const chechkValid = (e) => {
         e.preventDefault();
@@ -16,12 +16,12 @@ export default function Login() {
             <form className='form-login' onSubmit={(e) => chechkValid(e)}>
                 <label className='h1' htmlFor="inp">Enter your username</label>
                 <input className='text-field__input inp' id='inp' type="text" value={login} onChange={(e) => {
-                    setLogin(e.target.value)
+                    checkValidLogin(e, setLogin);
                 }} />
 
                 <label className='h1' htmlFor="inp">Enter your email</label>
                 <input className='text-field__input inp' id='inp' type="email" value={logEmail} onChange={(e) => {
-                    setLogEmail(e.target.value)
+                    checkValidEmail(e, setLogEmail);
                 }} />
 
                 <button className='btn-login btn-login-add'>Login</button>

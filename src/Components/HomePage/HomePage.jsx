@@ -5,6 +5,7 @@ import Counter from './HomePageComponents/Counter';
 import ImageBox from './HomePageComponents/ImageBox';
 import SearchPanel from './HomePageComponents/SearchPanel';
 import TitlePrice from './HomePageComponents/TitlePrice';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function HomePage() {
 
@@ -30,7 +31,7 @@ export default function HomePage() {
             <div className='products'>
                 {data !== undefined ? data.map(item => {
                     return (
-                        <div className='product' key={item.id}>
+                        <div className='product' key={uuidv4()}>
                             <ImageBox itemImage={item.image} />
                             <TitlePrice title={item.title} price={item.price} />
                             <p className='description'>{item.description.length > 150 ? item.description.substring(0, 150) + '...' : item.description}</p>
