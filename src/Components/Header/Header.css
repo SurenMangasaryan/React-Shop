@@ -12,6 +12,8 @@
     align-items: center;
     padding: 20px 60px;
     column-gap: 10px;
+    margin-right: 240px;
+    margin-left: -100px;
 }
 
 .list {

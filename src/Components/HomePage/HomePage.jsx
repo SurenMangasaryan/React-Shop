@@ -6,6 +6,7 @@ import ImageBox from './HomePageComponents/ImageBox';
 import SearchPanel from './HomePageComponents/SearchPanel';
 import TitlePrice from './HomePageComponents/TitlePrice';
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
 
