@@ -18,6 +18,12 @@ export default function Context({ children }) {
             })
     }, []);
 
+
+    // useEffect(() => {
+
+    //     axios.get('https://fakestoreapi.com/products')
+    // }, [])
+
     const [userName, setUserName] = useState('');
     const [name, setName] = useState('');
     const [sureName, setSureName] = useState('');

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { MyContext } from '../../Context'
 import '../HomePage/HomePage.css'
 import Counter from './HomePageComponents/Counter';
@@ -39,6 +39,7 @@ export default function HomePage() {
                             <Counter />
                             <div className='add'>
                                 <button className='btn' onClick={() => addToRecycle(item)}>Add to Cart</button>
+                                <Link to={`${item.id}`}><button className='btn'>About</button></Link>
                             </div>
                         </div>
                     )

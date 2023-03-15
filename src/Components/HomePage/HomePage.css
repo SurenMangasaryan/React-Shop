@@ -189,3 +189,11 @@ input[type=range]::-webkit-slider-runnable-track {
     background-color: rgb(91, 64, 116);
     cursor: pointer;
 }
+
+.not-found1{
+    margin-top: 250px;
+}
+
+.not-found2{
+    margin-top: 80px;
+}
