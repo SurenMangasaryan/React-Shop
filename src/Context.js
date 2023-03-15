@@ -8,22 +8,6 @@ export default function Context({ children }) {
     const [data, setData] = useState([]);
     const [prevData, setPrevData] = useState([]);
     const [recycleArr, setRecycleArr] = useState([]);
-
-
-    useEffect(() => {
-        axios.get('https://fakestoreapi.com/products?limit=9')
-            .then((res) => {
-                setData(res.data);
-                setPrevData(res.data);
-            })
-    }, []);
-
-
-    // useEffect(() => {
-
-    //     axios.get('https://fakestoreapi.com/products')
-    // }, [])
-
     const [userName, setUserName] = useState('');
     const [name, setName] = useState('');
     const [sureName, setSureName] = useState('');
@@ -33,6 +17,15 @@ export default function Context({ children }) {
     const [logEmail, setLogEmail] = useState('');
     const [checkUserName, setCheckUserName] = useState('');
     const [checkEmail, setCheckEmail] = useState('');
+    const [total, setTotal] = useState(0);
+
+    useEffect(() => {
+        axios.get('https://fakestoreapi.com/products?limit=9')
+            .then((res) => {
+                setData(res.data);
+                setPrevData(res.data);
+            })
+    }, []);
 
     const validation = (value, length, func) => {
         func(value.target.value);
@@ -113,6 +106,7 @@ export default function Context({ children }) {
         password, setPassword,
         login, setLogin,
         logEmail, setLogEmail,
+        total, setTotal,
         validation,
         localStorageValid,
         localCheckValid,

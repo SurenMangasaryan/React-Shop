@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { MyContext } from '../../Context'
 import Counter from '../HomePage/HomePageComponents/Counter';
 import ImageBox from '../HomePage/HomePageComponents/ImageBox';
@@ -6,6 +6,7 @@ import TitlePrice from '../HomePage/HomePageComponents/TitlePrice';
 import '../Recycle/Recycle.css'
 import EmptyRecycle from './RecycleComponents/EmptyRecycle';
 import { v4 as uuidv4 } from 'uuid';
+import RecycleTotal from './RecycleComponents/RecycleTotal';
 
 export default function Recycle() {
 
@@ -19,6 +20,7 @@ export default function Recycle() {
 
     return (
         <div className='recycle'>
+            <RecycleTotal />
             <div className='products'>
                 {recycleArr.length > 0 ? recycleArr.map((item, index) => {
                     return (

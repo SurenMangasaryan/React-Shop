@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 export default function HomePage() {
 
     const [bool, setBool] = useState(true);
-    const { data, recycleArr, setRecycleArr, login } = useContext(MyContext);
+    const { data, recycleArr, setRecycleArr, login, setTotal } = useContext(MyContext);
 
     const addToRecycle = (item) => {
         if (localStorage.getItem(login)) {
@@ -19,11 +19,18 @@ export default function HomePage() {
                 ...recycleArr,
                 item
             ]);
+            if (recycleArr.length > 0) {
+                const newTotal = recycleArr.reduce((start, item) => {
+                    return start += item.price;
+                }, 0)
+                setTotal(newTotal);
+            }
             setBool(true);
         } else {
             setBool(false);
         }
     }
+
 
     return (
         <div className='home-page'>
