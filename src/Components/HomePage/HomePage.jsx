@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { MyContext } from '../../Context'
 import '../HomePage/HomePage.css'
 import Counter from './HomePageComponents/Counter';
@@ -30,7 +30,6 @@ export default function HomePage() {
             setBool(false);
         }
     }
-
 
     return (
         <div className='home-page'>
