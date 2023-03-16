@@ -40,7 +40,7 @@ export default function Context({ children }) {
 
     const checkValidLogin = (value, func) => {
         func(value.target.value);
-        if (value.target.value === checkUserName) {
+        if (value.target.value === checkUserName && checkUserName.length > 0) {
             value.target.style.background = 'green';
         } else if (value.target.value.length === 0) {
             value.target.style.background = 'transparent';
