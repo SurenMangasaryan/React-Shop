@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { MyContext } from '../../Context'
 import Counter from '../HomePage/HomePageComponents/Counter';
 import ImageBox from '../HomePage/HomePageComponents/ImageBox';
@@ -10,13 +10,19 @@ import RecycleTotal from './RecycleComponents/RecycleTotal';
 
 export default function Recycle() {
 
-    const { recycleArr, setRecycleArr } = useContext(MyContext);
+    const { recycleArr, setRecycleArr, total, setTotal } = useContext(MyContext);
+    let newTotal = total;
 
-    const deleteItem = (index) => {
+    const deleteItem = (item, index) => {
         const newRecycleArr = [...recycleArr];
         newRecycleArr.splice(index, 1);
         setRecycleArr(newRecycleArr)
+        if (recycleArr.length > 0) {
+            newTotal -= item.price;
+        }
+        setTotal(Math.round(newTotal));
     }
+
 
     return (
         <div className='recycle'>
@@ -31,7 +37,7 @@ export default function Recycle() {
                                 ? item.description.substring(0, 150) + '...' : item.description}</p>
                             <Counter />
                             <div className='delete'>
-                                <button className='btn' onClick={() => deleteItem(index)}>Delete</button>
+                                <button className='btn' onClick={() => deleteItem(item, index)}>Delete</button>
                             </div>
                         </div>
                     )
