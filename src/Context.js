@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router';
 
 export const MyContext = createContext();
 
@@ -18,6 +19,8 @@ export default function Context({ children }) {
     const [checkUserName, setCheckUserName] = useState('');
     const [checkEmail, setCheckEmail] = useState('');
     const [total, setTotal] = useState(0);
+    const naviagteLogin = useNavigate();
+    const naviagteHomePage = useNavigate();
 
     useEffect(() => {
         axios.get('https://fakestoreapi.com/products?limit=9')
@@ -77,6 +80,7 @@ export default function Context({ children }) {
             setPassword("");
             setCheckUserName(userName);
             setCheckEmail(email);
+            naviagteLogin('/login');
         } else {
             console.log(null);
         }
@@ -91,6 +95,7 @@ export default function Context({ children }) {
                 }));
                 setLogin("");
                 setLogEmail("");
+                naviagteHomePage('')
             }
         }
     }
