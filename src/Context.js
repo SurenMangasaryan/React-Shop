@@ -100,6 +100,15 @@ export default function Context({ children }) {
         }
     }
 
+    const reduceItems = () => {
+        if (recycleArr.length > 0) {
+            const newTotal = recycleArr.reduce((start, item) => {
+                return start += item.price;
+            }, 0)
+            setTotal(newTotal);
+        }
+    }
+
     const values = {
         data, setData,
         prevData,
@@ -116,7 +125,8 @@ export default function Context({ children }) {
         localStorageValid,
         localCheckValid,
         checkValidLogin,
-        checkValidEmail
+        checkValidEmail,
+        reduceItems
     }
 
     return (

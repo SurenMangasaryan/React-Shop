@@ -19,12 +19,6 @@ export default function HomePage() {
                 ...recycleArr,
                 item
             ]);
-            if (recycleArr.length > 0) {
-                const newTotal = recycleArr.reduce((start, item) => {
-                    return start += item.price;
-                }, 0)
-                setTotal(newTotal);
-            }
             setBool(true);
         } else {
             setBool(false);
