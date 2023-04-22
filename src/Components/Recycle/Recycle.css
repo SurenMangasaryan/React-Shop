@@ -10,6 +10,14 @@
     margin-top: 200px;
 }
 
+.product-recycle{
+    width: 350px;
+    height: 380px;
+    background-color: white;
+    box-shadow: 0px 5px 10px rgb(216, 215, 214);
+    padding: 10px;
+}
+
 .delete {
     display: flex;
     justify-content: center;

@@ -23,7 +23,7 @@ export default function Context({ children }) {
     const naviagteHomePage = useNavigate();
 
     useEffect(() => {
-        axios.get('https://fakestoreapi.com/products?limit=9')
+        axios.get('https://fakestoreapi.com/products')
             .then((res) => {
                 setData(res.data);
                 setPrevData(res.data);
