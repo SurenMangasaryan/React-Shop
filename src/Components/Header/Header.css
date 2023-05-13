@@ -24,7 +24,7 @@
     list-style: none;
 }
 
-.list>li{
+.list>li {
     cursor: pointer;
     padding: 5px 30px;
     background-color: rgb(91, 64, 116);
@@ -37,10 +37,23 @@
     color: rgb(91, 64, 116);
 }
 
-a{
+a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 25px;
     font-weight: 400;
+}
+
+.recycle-box{
+    position: relative;
+}
+
+.circle {
+    position: absolute;
+    padding: 1px 10px;
+    border-radius: 50%;
+    background-color: rgb(91, 64, 116);
+    top: -20px;
+    right: -40px;
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import '../Header/Header.css'
 import Login from './HeaderComponents/Login'
 import Logo from './HeaderComponents/Logo'
 import Recycle from './HeaderComponents/Recycle'
 import Registration from './HeaderComponents/Registration'
+import '../Header/Header.css'
 
 export default function Header() {
     return (
